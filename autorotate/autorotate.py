@@ -24,8 +24,8 @@ def writeFile(path, myList): #self.filename
     myDatei.close()
 
 def refreshtouch():
-    os.system('xinput disable "NTRG0001:01 1B96:1B05"')
-    os.system('xinput enable "NTRG0001:01 1B96:1B05"')
+    os.system('xinput disable 11')
+    os.system('xinput enable 11')
 
 def checkdisplays():
     check_displays = "xrandr | grep -w 'connected'"
@@ -37,8 +37,8 @@ def checkdisplays():
 #PARAMETERS
 count = 0
 path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
-devicename = "'NTRG0001:01 1B96:1B05'"
-penname = "'NTRG0001:01 1B96:1B05 Pen'"
+devicename = "11"
+penname = "9"
 freq = 5.0
 
 
@@ -115,7 +115,7 @@ while True:
 
     print("##########################")
 #SCREEN
-    stylusProximityCommand = 'xinput query-state "NTRG0001:01 1B96:1B05 Pen" | grep Proximity | cut -d " " -f3 | cut -d "=" -f2'
+    stylusProximityCommand = 'xinput query-state 9 | grep Proximity | cut -d " " -f3 | cut -d "=" -f2'
     stylusProximityStatus = str(subprocess.check_output(stylusProximityCommand, shell=True).lower().rstrip())
     tstatus = readFile(os.path.join(path, 'touch.txt'))
 #TOUCHSCREEN
@@ -139,7 +139,7 @@ while True:
         print("TOUCH: " + tstatus[0])
         print("  PEN: " + stylusProximityStatus)
     elif str(tstatus[0]) == "on" and stylusProximityStatus == "in" and firstrun == False:
-        os.system('xinput disable "NTRG0001:01 1B96:1B05"')
+        os.system('xinput disable 11')
         print("TOUCH: " + "off")
         print("  PEN: " + stylusProximityStatus)
     elif stylusProximityStatus == "out":
