@@ -19,8 +19,8 @@ def writeFile(path, myList): #self.filename
     myDatei.close()
 
 
-devicename = "NTRG0001:01 1B96:1B05"
-penname = "'NTRG0001:01 1B96:1B05 Pen'"
+devicename = "11"
+penname = "9"
 path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 
 status = readFile(os.path.join(path, 'touch.txt'))
