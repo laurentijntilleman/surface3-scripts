@@ -19,7 +19,7 @@ def writeFile(path, myList): #self.filename
     myDatei.close()
 
 
-devicename = "11"
+devicename = "'Atmel Atmel maXTouch Digitizer'"
 penname = "9"
 path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
 
